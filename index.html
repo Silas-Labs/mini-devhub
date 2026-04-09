@@ -7,10 +7,31 @@
 </head>
 <body>
     <div>
-        <input/>
-        <input/>
-        <input />
+        <form>
+        <label> Title
+        <input type="text" id="title" required/>
+        </label>
+        <label> Link
+        <input type="text" id="link" required/>
+        </label>
+        <label> Category
+        <select id="category">
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JS</option>
+        </select>
+        </label>
+        <label> Dificulty
+        <select id="difficulty">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+        </select>
+        </label>
         <input type="file"/>
+        <input type="submit" value="Save" id="save"/>
+        </form>
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>

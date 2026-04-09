@@ -1,3 +1,34 @@
 body {
     background-color: rgba(13, 50, 75, 0.74);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    width: calc(100%);
+    max-width: 768px;
+}
+
+
+input,select {
+    min-height: 40px;
+    min-width: 200px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+input[type="submit"]{
+    width: calc(100%);
+}
+
+#difficulty, #category{
+    width: 200px;
 }
