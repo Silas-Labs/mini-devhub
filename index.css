@@ -38,6 +38,15 @@ table{
     width: 500px;
 }
 
+thead{
+    color: rgba(252, 232, 56, 0.815);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px;
+}
+
 td{
     min-width: calc(100%/3);
+    margin: 5px;
+    border-bottom: 1px solid gray
 }
