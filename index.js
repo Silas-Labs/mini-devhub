@@ -30,6 +30,8 @@ btnSave.addEventListener("click",(e)=>{
 const clearForm=()=>{
     title.value=""
     link.value=""
+    dificulty.selectedIndex=0
+    category.selectedIndex=0
 }
 
 const loadFromStorage=()=>{

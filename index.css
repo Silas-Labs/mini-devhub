@@ -35,4 +35,9 @@ input[type="submit"]{
 
 table{
     min-width: 300px;
+    width: 500px;
+}
+
+td{
+    min-width: calc(100%/3);
 }
