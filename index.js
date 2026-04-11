@@ -2,6 +2,7 @@ const title = document.getElementById("title")
 const link = document.getElementById("link")
 const category = document.getElementById("category")
 const dificulty = document.getElementById("difficulty")
+const file = document.getElementById("file")
 const table = document.getElementById("resource-table")
 
 let resources = JSON.parse(localStorage.getItem("resources")) || []
@@ -18,7 +19,8 @@ btnSave.addEventListener("click",(e)=>{
         title: title.value,
         link: link.value,
         category: category.value,
-        dificulty: dificulty.value
+        dificulty: dificulty.value,
+        file: file.value
     }
     
     resources = [...resources,newResource]
@@ -32,6 +34,7 @@ const clearForm=()=>{
     link.value=""
     dificulty.selectedIndex=0
     category.selectedIndex=0
+    file.value=""
 }
 
 const loadFromStorage=()=>{
@@ -47,6 +50,7 @@ const loadFromStorage=()=>{
              row.insertCell(1).textContent=it.link,
              row.insertCell(2).textContent=it.category,
              row.insertCell(3).textContent=it.dificulty 
+             row.insertCell(4).textContent=it.file 
     })
     }
 }
