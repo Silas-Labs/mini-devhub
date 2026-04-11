@@ -4,7 +4,11 @@ const category = document.getElementById("category")
 const dificulty = document.getElementById("difficulty")
 const table = document.getElementById("resource-table")
 
-let resources = []
+let resources = JSON.parse(localStorage.getItem("resources")) || []
+
+document.addEventListener("DOMContentLoaded",()=>{
+    loadFromStorage()
+})
 
 const btnSave = document.getElementById("save")
 btnSave.addEventListener("click",(e)=>{
@@ -29,18 +33,18 @@ const clearForm=()=>{
 }
 
 const loadFromStorage=()=>{
+    table.innerHTML = ""
     let count = 0
     let data = JSON.parse(localStorage.getItem("resources")) || []
     if (data.length == 0) {
         table.innerHTML = "<tr><td colspan='4'>No data to display</td></tr>"
     } else {
-        
         data?.forEach((it)=>{
             const row = table.insertRow();
             row.insertCell(0).textContent=it.title,
-             row.insertCell(1).textContent=it.name,
+             row.insertCell(1).textContent=it.link,
              row.insertCell(2).textContent=it.category,
-             row.insertCell(3).textContent=it.difficulty 
+             row.insertCell(3).textContent=it.dificulty 
     })
     }
 }
