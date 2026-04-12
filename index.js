@@ -1,11 +1,14 @@
-const title = document.getElementById("title")
-const link = document.getElementById("link")
-const category = document.getElementById("category")
-const dificulty = document.getElementById("difficulty")
-const file = document.getElementById("file")
+let title = document.getElementById("title")
+let link = document.getElementById("link")
+let category = document.getElementById("category")
+let dificulty = document.getElementById("difficulty")
+let file = document.getElementById("file")
 const table = document.getElementById("resource-table")
 let fileName = ""
 let resources = JSON.parse(localStorage.getItem("resources")) || []
+
+let edit = false
+let indexToEdit = 0
 
 document.addEventListener("DOMContentLoaded",()=>{
     loadFromStorage()
@@ -19,18 +22,24 @@ file.addEventListener("change",(e)=>{
 const btnSave = document.getElementById("save")
 btnSave.addEventListener("click",(e)=>{
     e.preventDefault()
-    const newResource = {
+    let newResource = {
         title: title.value,
         link: link.value,
         category: category.value,
         dificulty: dificulty.value,
-        file: fileName[0]["name"]
-
     }
     
-    resources = [...resources,newResource]
-    saveTolocalStorage(resources)
+    if (edit === false){
+        //newResource.file = fileName[0]["name"]
+        resources = [...resources,newResource]
+        saveTolocalStorage(resources)
+    } else {
+        resources[indexToEdit] == newResource
+        saveTolocalStorage(resources)
+        edit= false
+    }
     clearForm()
+    loadFromStorage()
 })
 
 const clearForm=()=>{
@@ -69,7 +78,17 @@ const loadFromStorage=()=>{
 }
 
 const Edit=(index)=>{
-    console.log("Editing")
+    indexToEdit = index
+    edit= true
+
+    title.value = resources[index].title
+    link.value = resources[index].link
+    category.value = resources[index].category
+    dificulty.value = resources[index].dificulty
+    
+    console.log(resources[index].title)
+    console.log(title)
+
 }
 
 const Delete=(index)=>{
