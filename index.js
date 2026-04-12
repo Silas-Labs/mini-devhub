@@ -39,10 +39,9 @@ const clearForm=()=>{
 
 const loadFromStorage=()=>{
     table.innerHTML = ""
-    let count = 0
     let data = JSON.parse(localStorage.getItem("resources")) || []
     if (data.length == 0) {
-        table.innerHTML = "<tr><td colspan='4'>No data to display</td></tr>"
+        table.innerHTML = "<tr><td style='text-align:center; color: white;' colspan='5'>No data to display</td></tr>"
     } else {
         data?.forEach((it)=>{
             const row = table.insertRow();
