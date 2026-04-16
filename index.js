@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 file.addEventListener("change", (e) => {
   fileName = e.target.files;
-  console.log(fileName);
 });
 
 const btnSave = document.getElementById("save");
@@ -31,7 +30,6 @@ btnSave.addEventListener("click", (e) => {
   };
 
   if (edit == false) {
-    
     resources = [...resources, newResource];
     saveTolocalStorage(resources);
   }
